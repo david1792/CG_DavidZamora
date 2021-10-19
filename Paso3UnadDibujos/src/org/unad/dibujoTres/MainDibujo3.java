@@ -5,7 +5,7 @@
  */
 package org.unad.dibujoTres;
 
-import org.unad.dibujoUno.*;
+import org.unad.dibujoTres.*;
 import javax.swing.*;
 
 /**
@@ -19,7 +19,7 @@ public class MainDibujo3 {
         JFrame jFrame = new JFrame("Dibujo 1");
         Trazos trazos = new Trazos();
         jFrame.add(trazos);
-        jFrame.setSize(700, 850);
+        jFrame.setSize(500, 550);
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -5,8 +5,8 @@
  */
 package org.unad.dibujoTres;
 
-import org.unad.dibujoDos.*;
-import org.unad.dibujoDos.*;
+import org.unad.dibujoTres.*;
+import org.unad.dibujoTres.*;
 import Models.Cordenate;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -27,77 +27,49 @@ public class Trazos extends JPanel{
     
     @Override
     public void paint(Graphics g){
-        Graphics2D graphics2D = (Graphics2D) g;
-        Ellipse2D ellipse2DBody = new Ellipse2D.Float();
-        ellipse2DBody.setFrame(100, 150, 250,100);
-        graphics2D.draw(ellipse2DBody);
-
-        Ellipse2D ellipse2DLeftEye = new Ellipse2D.Float();
-        ellipse2DLeftEye.setFrame(260, 150, 50,50);
-        graphics2D.draw(ellipse2DLeftEye);
-
-        Arc2D.Double arc2RightEye = new Arc2D.Double(290, 150, 50, 50, 230, 255, Arc2D.OPEN);
-        graphics2D.draw(arc2RightEye);
+        int[] xPointsLeftEar = { 70, 140, 66, 20}; 
+        int[] yPointsLeftEar = { 53, 99, 240, 134};
+        g.drawPolygon(xPointsLeftEar, yPointsLeftEar, xPointsLeftEar.length);
         
-        Ellipse2D ellipse2DLeftPupil = new Ellipse2D.Float();
-        ellipse2DLeftPupil.setFrame(280, 170, 10,10);
-        graphics2D.draw(ellipse2DLeftPupil);
+        int[] xPointsRightEar = {346 , 415, 465, 416}; 
+        int[] yPointsRightEar = { 103, 53, 133, 239};
+        g.drawPolygon(xPointsRightEar, yPointsRightEar, yPointsRightEar.length);
 
-        Ellipse2D ellipse2DRightPupil = new Ellipse2D.Float();
-        ellipse2DRightPupil.setFrame(315, 170, 10,10);
-        graphics2D.draw(ellipse2DRightPupil);
+        int[] xPointsFace = {241 , 346, 446, 400, 310, 287, 239, 183, 173,  80,  39, 139}; 
+        int[] yPointsFace = { 71 , 103, 300, 400, 441, 473, 482, 465, 441, 403, 293, 103};
+        g.drawPolygon(xPointsFace, yPointsFace, xPointsFace.length);
 
+        int[] xPointsFaceInPartOne = {140, 200, 81, 39}; 
+        int[] yPointsFaceInPartOne = { 99, 200, 403, 293};
+        g.drawPolygon(xPointsFaceInPartOne, yPointsFaceInPartOne, xPointsFaceInPartOne.length);
 
-        Arc2D.Double firstBodyLine = new Arc2D.Double(255, 155, 30, 90, 80, 180, Arc2D.OPEN);
-        graphics2D.draw(firstBodyLine);
+        int[] xPointsFaceInPartTwo = {200, 190, 160, 117}; 
+        int[] yPointsFaceInPartTwo = {200, 323, 374, 339};
+        g.drawPolygon(xPointsFaceInPartTwo, yPointsFaceInPartTwo, xPointsFaceInPartTwo.length);
+
+        int[] xPointsFaceInPartThree = {346, 284, 400, 445}; 
+        int[] yPointsFaceInPartThree = {103, 201, 400, 300};
+        g.drawPolygon(xPointsFaceInPartThree, yPointsFaceInPartThree, xPointsFaceInPartThree.length);
+
+        int[] xPointsFaceInPartFour = {284, 299, 327, 369}; 
+        int[] yPointsFaceInPartFour = {201, 327, 375, 345};
+        g.drawPolygon(xPointsFaceInPartFour, yPointsFaceInPartFour, xPointsFaceInPartFour.length);
+
+        int[] xPointsFirstPartMouse = {173, 80, 117, 159}; 
+        int[] yPointsFirstPartMouse = {441, 403, 340, 374};
+        g.drawPolygon(xPointsFirstPartMouse, yPointsFirstPartMouse, xPointsFirstPartMouse.length);
+ 
+        int[] xPointsSecondPartMouse = {368, 400, 310, 327}; 
+        int[] yPointsSecondPartMouse = {347, 400, 441, 372};
+        g.drawPolygon(xPointsSecondPartMouse, yPointsSecondPartMouse, xPointsSecondPartMouse.length);       
         
-        Arc2D.Double secondBodyLine = new Arc2D.Double(200, 150, 50, 100, 80, 180, Arc2D.OPEN);
-        graphics2D.draw(secondBodyLine);
+        int[] xPointsThirdPartMouse = {174, 197, 241, 284, 310, 287, 239, 183}; 
+        int[] yPointsthirdPartMouse = {445, 452, 435, 454, 441, 473, 482, 465};
+        g.drawPolygon(xPointsThirdPartMouse, yPointsthirdPartMouse, yPointsthirdPartMouse.length);       
 
-        Arc2D.Double thirdBodyLine = new Arc2D.Double(150, 155, 50, 90, 80, 180, Arc2D.OPEN);
-        graphics2D.draw(thirdBodyLine);
-        
-        AffineTransform originalTransformation = graphics2D.getTransform();
-        
-        Arc2D.Double firstWing = new Arc2D.Double(100,100,100,50, 0, 360, Arc2D.OPEN);
-        graphics2D.rotate(Math.toRadians(135), 200, 150);
-        graphics2D.draw(firstWing);
-        
-        Arc2D.Double secondWing = new Arc2D.Double(120,130,100,50, 0, 360, Arc2D.OPEN);
-        graphics2D.rotate(300, 200, 150);
-        graphics2D.draw(secondWing);
-        
-        Arc2D.Double mouth = new Arc2D.Double(275, 100, 50, 50, 270, 90, Arc2D.OPEN);
-        graphics2D.draw(mouth);
-        
-        graphics2D.setTransform(originalTransformation);
-
-        Line2D upLinePen = new Line2D.Double();
-        upLinePen.setLine(100D,250D,350D,250D);  
-        graphics2D.draw(upLinePen);
-
-        Line2D downLinePen = new Line2D.Double();
-        downLinePen.setLine(100D,300D,350D,300D);  
-        graphics2D.draw(downLinePen);        
-
-        CubicCurve2D penEraser = new CubicCurve2D.Float();
-        penEraser.setCurve(100F,250F,50F,240F,50F,310F,100F,300F);       
-        graphics2D.draw(penEraser);
-        
-        Arc2D.Double firstPenArc = new Arc2D.Double(95, 250, 10, 50, 80, 180, Arc2D.OPEN);
-        graphics2D.draw(firstPenArc);
-
-        Arc2D.Double secondPenArc = new Arc2D.Double(110, 250, 10, 50, 80, 180, Arc2D.OPEN);
-        graphics2D.draw(secondPenArc);        
-
-        Arc2D.Double thirdPenArc = new Arc2D.Double(345, 250, 10, 50, 80, 180, Arc2D.OPEN);
-        graphics2D.draw(thirdPenArc);
-        
-        QuadCurve2D woodPencil = new QuadCurve2D.Double(350D,250D,475F,275F,350D,300D);
-        graphics2D.draw(woodPencil);
-
-        QuadCurve2D leadPencil = new QuadCurve2D.Double(400D,265,370F,270F,400D,285D);
-        graphics2D.draw(leadPencil);
+        int[] xPointsFourPartMouse = {242, 266, 241, 219}; 
+        int[] yPointsFourPartMouse = {435, 445, 456, 444};
+        g.drawPolygon(xPointsFourPartMouse, yPointsFourPartMouse, xPointsFourPartMouse.length);       
         
     }
 }
